@@ -110,6 +110,7 @@ exports.updateProfile = async (req, res) => {
   }
 };
 
+
 // Delete user account
 exports.deleteAccount = async (req, res) => {
   try {
