@@ -61,6 +61,7 @@ exports.register = async (req, res) => {
   }
 };
 
+
 // Login user
 exports.login = async (req, res) => {
   try {
@@ -92,7 +93,7 @@ exports.login = async (req, res) => {
       });
     }
 
-    
+
     // Verify password
     const isMatch = await user.comparePassword(password);
     
