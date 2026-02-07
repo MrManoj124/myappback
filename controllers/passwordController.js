@@ -98,7 +98,6 @@ exports.resetPassword = async (req, res) => {
   }
 };
 
-
 // Change password (for logged-in users)
 exports.changePassword = async (req, res) => {
   try {
