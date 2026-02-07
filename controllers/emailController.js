@@ -5,6 +5,7 @@ const User = require('../models/User');
 const crypto = require('crypto');
 const { sendVerificationEmail } = require('../utils/emailTemplates');
 
+
 // Verify email with token
 exports.verifyEmail = async (req, res) => {
   try {
