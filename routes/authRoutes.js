@@ -13,7 +13,6 @@ router.use(authLimiter);
 //@access Public
 router.post('/register', registerValidation, validate, register);
 
-
 //@route POST /api/auth/login
 //@desc Login user
 //@access Public
