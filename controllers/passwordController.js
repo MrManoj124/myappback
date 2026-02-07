@@ -5,6 +5,7 @@ const User = require('../models/User');
 const crypto = require('crypto');
 const { sendPasswordResetEmail } = require('../utils/emailTemplates');
 
+
 // Request password reset
 exports.forgotPassword = async (req, res) => {
   try {
