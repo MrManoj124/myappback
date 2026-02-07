@@ -92,6 +92,7 @@ exports.login = async (req, res) => {
       });
     }
 
+    
     // Verify password
     const isMatch = await user.comparePassword(password);
     
