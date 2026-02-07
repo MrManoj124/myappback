@@ -1,6 +1,7 @@
 // ============================================
 // FILE: controllers/emailController.js
 // ============================================
+
 const User = require('../models/User');
 const crypto = require('crypto');
 const { sendVerificationEmail } = require('../utils/emailTemplates');
