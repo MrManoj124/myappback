@@ -17,6 +17,7 @@ router.get('/profile', getProfile);
 //@access Private
 router.put('/update', updateProfileValidation, validate, updateProfile);    
 
+
 //@route DELETE /api/user/delete
 //@desc Delete user account
 //@access Private
