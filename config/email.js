@@ -119,6 +119,7 @@ userSchema.methods.comparePassword = async function(candidatePassword) {
   }
 };
 
+
 // Method to increment login attempts
 userSchema.methods.incrementLoginAttempts = function() {
   // If we have a previous lock that has expired, restart at 1
