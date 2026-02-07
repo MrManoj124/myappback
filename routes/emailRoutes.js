@@ -4,6 +4,7 @@ const {verifyEmail, resendVerification} = require('../controllers/emailControlle
 const {emailValidation, validate} = require('../middleware/validation');
 const {emailLimiter} = require('../middleware/rateLimiter');
 
+
 //@route POST /api/email/verify
 //@desc Verify user email
 //@access Public
