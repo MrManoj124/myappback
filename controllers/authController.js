@@ -6,6 +6,7 @@ const crypto = require('crypto');
 const { generateToken } = require('../utils/tokenGenerator');
 const { sendVerificationEmail } = require('../utils/emailTemplates');
 
+
 // Register new user
 exports.register = async (req, res) => {
   try {
