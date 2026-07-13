@@ -1,5 +1,5 @@
 // ============================================
-// FILE: server.js (Main Entry Point)
+// FILE: server.js (fixed route import paths)
 // ============================================
 const express = require('express');
 const cors = require('cors');
@@ -12,11 +12,11 @@ require('dotenv').config();
 const connectDB = require('./config/db');
 require('./config/passport');
 
-// Import routes
+// Import routes (fixed: userRoute.js & passwordRoute.js actual filenames)
 const authRoutes = require('./routes/authRoutes');
-const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/userRoute');
 const emailRoutes = require('./routes/emailRoutes');
-const passwordRoutes = require('./routes/passwordRoutes');
+const passwordRoutes = require('./routes/passwordRoute');
 const oauthRoutes = require('./routes/oauthRoutes');
 
 // Import middleware
@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  origin: process.env.CLIENT_URL || 'http://localhost:5173',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -52,8 +52,8 @@ app.use('/api/', rateLimiter);
 
 // Health check route
 app.get('/health', (req, res) => {
-  res.status(200).json({ 
-    status: 'OK', 
+  res.status(200).json({
+    status: 'OK',
     timestamp: new Date(),
     uptime: process.uptime(),
     environment: process.env.NODE_ENV || 'development'
@@ -69,19 +69,19 @@ app.use('/api/oauth', oauthRoutes);
 
 // Welcome route
 app.get('/', (req, res) => {
-  res.json({ 
+  res.json({
     message: 'TruosTek Authentication API',
     version: '1.0.0',
-    docs: '/api/docs'
+    health: '/health'
   });
 });
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).json({ 
+  res.status(404).json({
     success: false,
     message: 'Route not found',
-    path: req.originalUrl 
+    path: req.originalUrl
   });
 });
 
@@ -93,7 +93,7 @@ const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🌐 Client URL: ${process.env.CLIENT_URL || 'http://localhost:3000'}`);
+  console.log(`🌐 Client URL: ${process.env.CLIENT_URL || 'http://localhost:5173'}`);
 });
 
 // Handle unhandled promise rejections
