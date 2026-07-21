@@ -18,7 +18,7 @@ exports.rateLimiter = rateLimit({
 // Strict rate limiter for auth routes
 exports.authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5, // 5 requests per window
+  max: parseInt(process.env.AUTH_RATE_LIMIT_MAX) || 20, // 20 attempts per window
   skipSuccessfulRequests: true,
   message: {
     success: false,
